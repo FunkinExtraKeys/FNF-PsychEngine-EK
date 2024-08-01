@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        storage-type: [EXTERNAL, OBB] # EXTERNAL, OBB, DATA, MEDIA
+        storage-type: [EXTERNAL, OBB, DATA, MEDIA] # EXTERNAL, OBB, DATA, MEDIA
     steps:
       - name: Checkout
         uses: actions/checkout@main
