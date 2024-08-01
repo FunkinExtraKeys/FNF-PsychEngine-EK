@@ -29,9 +29,22 @@ jobs:
 
       - name: Install Libraries
         run: |
-          haxelib setup ~/haxelib
-          haxelib install hmm --quiet
-          haxelib run hmm install --quiet
+          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp master --quiet
+          haxelib git lime https://github.com/mcagabe19-stuff/lime develop --quiet
+          haxelib install openfl --quiet
+          haxelib install flixel --quiet
+          haxelib install flixel-addons --quiet
+          haxelib install flixel-tools --quiet
+          haxelib install flixel-ui --quiet
+          haxelib install hxCodec --quiet
+          haxelib git hxvlc https://github.com/MAJigsaw77/hxvlc/ 9ad403a3d9567b25b97048add9f68c7f278dcccd --quiet --skip-dependencies
+          haxelib install SScript --quiet
+          haxelib install hxcpp-debug-server --quiet
+          haxelib install tjson --quiet
+          haxelib install hxdiscord_rpc --quiet
+          haxelib git linc_luajit https://github.com/superpowers04/linc_luajit.git master --quiet 
+          haxelib git flxanimate https://github.com/ShadowMario/flxanimate.git dev --quiet
+          haxelib git extension-androidtools https://github.com/MobilePorting/extension-androidtools-Base SAF --quiet --skip-dependencies
 
       - name: Configure Android
         run: |
@@ -63,22 +76,9 @@ jobs:
 
       - name: Install Libraries
         run: |
-          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp master --quiet
-          haxelib git lime https://github.com/mcagabe19-stuff/lime develop --quiet
-          haxelib install openfl --quiet
-          haxelib install flixel --quiet
-          haxelib install flixel-addons --quiet
-          haxelib install flixel-tools --quiet
-          haxelib install flixel-ui --quiet
-          haxelib install hxCodec --quiet
-          haxelib git hxvlc https://github.com/MAJigsaw77/hxvlc/ 9ad403a3d9567b25b97048add9f68c7f278dcccd --quiet --skip-dependencies
-          haxelib install SScript --quiet
-          haxelib install hxcpp-debug-server --quiet
-          haxelib install tjson --quiet
-          haxelib install hxdiscord_rpc --quiet
-          haxelib git linc_luajit https://github.com/superpowers04/linc_luajit.git master --quiet 
-          haxelib git flxanimate https://github.com/ShadowMario/flxanimate.git dev --quiet
-          haxelib git extension-androidtools https://github.com/MobilePorting/extension-androidtools-Base SAF --quiet --skip-dependencies
+          haxelib setup ~/haxelib
+          haxelib install hmm --quiet
+          haxelib run hmm install --quiet
 
       - name: Compile
         run: haxelib run lime build ios -nosign -D NOVIDEO
