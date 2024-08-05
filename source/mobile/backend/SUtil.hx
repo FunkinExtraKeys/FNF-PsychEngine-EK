@@ -47,13 +47,15 @@ class SUtil
 			case EXTERNAL_OBB:
 				daPath = Context.getObbDir();
 			case EXTERNAL:
-				daPath = Environment.getExternalStorageDirectory() + '/' + Application.current.meta.get('file');
+				daPath = Environment.getExternalStorageDirectory() + '/.' + Application.current.meta.get('file');
 			case MEDIA:
 				daPath = Environment.getExternalStorageDirectory() + '/Android/media/' + Application.current.meta.get('packageName');
 		}
 		#elseif ios
 		daPath = LimeSystem.documentsDirectory;
 		#end
+
+		showPopUp('daPath: ' + daPath, 'Storage Directory');
 
 		return daPath;
 	}

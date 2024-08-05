@@ -82,13 +82,15 @@ class TitleState extends MusicBeatState
 		#end
 
 		#if LUA_ALLOWED
+		SUtil.showPopUp('Does .PsychEngine exist? ' + FileSystem.exists(SUtil.getStorageDirectory()), 'Storage Directory');
         	#if (android && EXTERNAL || MEDIA)
         try {
+			SUtil.showPopUp("Attempting to push global mods", "Mod try");
         	#end
 		Mods.pushGlobalMods();
             #if (android && EXTERNAL || MEDIA)
         } catch (e:Dynamic) {
-            SUtil.showPopUp("Please create folder to\n" + #if EXTERNAL "/storage/emulated/0/." + lime.app.Application.current.meta.get('file') #else "/storage/emulated/0/Android/media/" + lime.app.Application.current.meta.get('packageName') #end + "\nPress OK to close the game", "Error!");
+            SUtil.showPopUp("Please create folder to\n" + #if EXTERNAL "/storage/emulated/0/." + lime.app.Application.current.meta.get('file') #else "/storage/emulated/0/Android/media/" + lime.app.Application.current.meta.get('packageName') #end + "\nPress OK to close the game\nError: " + e, "Error!");
             Sys.exit(1);
         }
             #end

@@ -36,12 +36,17 @@ class Mods
 
 	inline public static function pushGlobalMods() // prob a better way to do this but idc
 	{
+		SUtil.showPopUp('Attempting to set list globalMods to empty', 'Mod Attempt');
 		globalMods = [];
+		SUtil.showPopUp('Attempting to iterate', 'Mod Attempt');
 		for(mod in parseList().enabled)
 		{
+			SUtil.showPopUp('Attempting to get mod pack', 'Mod Attempt');
 			var pack:Dynamic = getPack(mod);
+			SUtil.showPopUp('Pushing to global mods', 'Mod Attempt');
 			if(pack != null && pack.runsGlobally) globalMods.push(mod);
 		}
+		SUtil.showPopUp('Returning global mods', 'Mod Attempt');
 		return globalMods;
 	}
 
