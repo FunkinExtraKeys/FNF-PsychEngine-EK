@@ -181,6 +181,7 @@ class Mods
 		// Find all that are already ordered
 		var list:Array<Array<Dynamic>> = [];
 		var added:Array<String> = [];
+		SUtil.showPopUp('[updateModList] attempting to read modslist.txt', 'Mods');
 		try {
 			for (mod in CoolUtil.coolTextFile('modsList.txt'))
 			{
@@ -216,6 +217,7 @@ class Mods
 			fileStr += values[0] + '|' + (values[1] ? '1' : '0');
 		}
 
+		SUtil.showPopUp('Attempting to save', 'Mods');
 		File.saveContent('modsList.txt', fileStr);
 		updatedOnState = true;
 		//trace('Saved modsList.txt');
