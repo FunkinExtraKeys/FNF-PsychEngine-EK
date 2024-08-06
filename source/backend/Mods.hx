@@ -218,6 +218,8 @@ class Mods
 		}
 
 		SUtil.showPopUp('Attempting to save', 'Mods');
+		SUtil.showPopUp('Current working directory: ' + Sys.getCwd(), 'Mods');
+		SUtil.showPopUp('If I am smart: ' + Sys.getCwd() + 'modsList.txt', 'Mods');
 		File.saveContent('modsList.txt', fileStr);
 		updatedOnState = true;
 		//trace('Saved modsList.txt');
