@@ -82,10 +82,8 @@ class TitleState extends MusicBeatState
 		#end
 
 		#if LUA_ALLOWED
-		SUtil.showPopUp('Does .PsychEngine exist? ' + FileSystem.exists(SUtil.getStorageDirectory()), 'Storage Directory');
         	#if (android && EXTERNAL || MEDIA)
         try {
-			SUtil.showPopUp("Attempting to push global mods", "Mod try");
         	#end
 		Mods.pushGlobalMods();
             #if (android && EXTERNAL || MEDIA)

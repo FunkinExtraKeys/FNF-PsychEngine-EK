@@ -56,8 +56,6 @@ class SUtil
 		daPath = LimeSystem.documentsDirectory;
 		#end
 
-		showPopUp('daPath: ' + daPath, 'Storage Directory');
-
 		return daPath;
 	}
 
@@ -183,7 +181,7 @@ class SUtil
 		{
 			if (!Permissions.getGrantedPermissions().contains('android.permission.READ_EXTERNAL_STORAGE')) Permissions.requestPermission('android.permission.READ_EXTERNAL_STORAGE');
 			if (!Permissions.getGrantedPermissions().contains('android.permission.WRITE_EXTERNAL_STORAGE')) Permissions.requestPermission('android.permission.WRITE_EXTERNAL_STORAGE');
-			showPopUp('Please Make Sure You Accepted The Permissions To Be Able To Run The Game', 'Notice!');
+			showPopUp('Please make sure you accept the permissions to run the game.', 'Warning');
 			if (!Environment.isExternalStorageManager())
 				Settings.requestSetting('MANAGE_APP_ALL_FILES_ACCESS_PERMISSION');
 		}

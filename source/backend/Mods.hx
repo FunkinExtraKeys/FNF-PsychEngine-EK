@@ -36,17 +36,12 @@ class Mods
 
 	inline public static function pushGlobalMods() // prob a better way to do this but idc
 	{
-		SUtil.showPopUp('Attempting to set list globalMods to empty', 'Mod Attempt');
 		globalMods = [];
-		SUtil.showPopUp('Attempting to iterate', 'Mod Attempt');
 		for(mod in parseList().enabled)
 		{
-			SUtil.showPopUp('Attempting to get mod pack', 'Mod Attempt');
 			var pack:Dynamic = getPack(mod);
-			SUtil.showPopUp('Pushing to global mods', 'Mod Attempt');
 			if(pack != null && pack.runsGlobally) globalMods.push(mod);
 		}
-		SUtil.showPopUp('Returning global mods', 'Mod Attempt');
 		return globalMods;
 	}
 
@@ -181,8 +176,6 @@ class Mods
 		// Find all that are already ordered
 		var list:Array<Array<Dynamic>> = [];
 		var added:Array<String> = [];
-		SUtil.showPopUp('[updateModList] attempting to read modslist.txt', 'Mods');
-		File.saveContent('NOTModsList.txt', "sdikfjsdkjsdkfhfsdkjuhfdkjs");
 		try {
 			for (mod in CoolUtil.coolTextFile('modsList.txt'))
 			{
@@ -217,10 +210,6 @@ class Mods
 			if(fileStr.length > 0) fileStr += '\n';
 			fileStr += values[0] + '|' + (values[1] ? '1' : '0');
 		}
-
-		SUtil.showPopUp('Attempting to save', 'Mods');
-		SUtil.showPopUp('Current working directory: ' + Sys.getCwd(), 'Mods');
-		SUtil.showPopUp('If I am smart: ' + Sys.getCwd() + 'modsList.txt', 'Mods');
 		File.saveContent('modsList.txt', fileStr);
 		updatedOnState = true;
 		//trace('Saved modsList.txt');

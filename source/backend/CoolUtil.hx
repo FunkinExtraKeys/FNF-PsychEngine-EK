@@ -21,10 +21,8 @@ class CoolUtil
 		#if (sys && MODS_ALLOWED)
 		var formatted:Array<String> = path.split(':'); //prevent "shared:", "preload:" and other library names on file path
 		path = formatted[formatted.length-1];
-		SUtil.showPopUp('[FS] Does ' + path + ' exist? ' + FileSystem.exists(path), 'CoolutilCooltextfile');
 		if(FileSystem.exists(path)) daList = File.getContent(path);
 		#else
-		SUtil.showPopUp('[OA] Does ' + path + ' exist? ' + FileSystem.exists(path), 'CoolutilCooltextfile');
 		if(Assets.exists(path)) daList = Assets.getText(path);
 		#end
 		return daList != null ? listFromString(daList) : [];
