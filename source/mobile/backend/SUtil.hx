@@ -188,13 +188,18 @@ class SUtil
 				Settings.requestSetting('MANAGE_APP_ALL_FILES_ACCESS_PERMISSION');
 		}
 
-		// try {
-		// 	if (!FileSystem.exists(getStorageDirectory()))
-		// 		FileSystem.createDirectory(getStorageDirectory());
-		// } catch(e:Dynamic) {
-		// 	showPopUp("Please create folder to\n" + #if EXTERNAL "/storage/emulated/0/." + lime.app.Application.current.meta.get('file') #elseif MEDIA "/storage/emulated/0/Android/media/" + lime.app.Application.current.meta.get('packageName') #else SUtil.getStorageDirectory() #end + "\nPress OK to close the game", "Error!");
-		// 	LimeSystem.exit(1);
-		// }
+		try {
+			if (!FileSystem.exists(getStorageDirectory()))
+				FileSystem.createDirectory(getStorageDirectory());
+		} catch(e:Dynamic) {
+			showPopUp("Please create folder to\n" + 
+			#if EXTERNAL "/storage/emulated/0/." + lime.app.Application.current.meta.get('file') 
+			#elseif MEDIA "/storage/emulated/0/Android/media/" + lime.app.Application.current.meta.get('packageName') 
+			#else SUtil.getStorageDirectory() 
+			#end + 
+			"\nError: " + e + "\nPress OK to close the game", "Error!");
+			LimeSystem.exit(1);
+		}
 	}
 	#end
 
