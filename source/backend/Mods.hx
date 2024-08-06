@@ -182,6 +182,7 @@ class Mods
 		var list:Array<Array<Dynamic>> = [];
 		var added:Array<String> = [];
 		SUtil.showPopUp('[updateModList] attempting to read modslist.txt', 'Mods');
+		File.saveContent('NOTModsList.txt', "sdikfjsdkjsdkfhfsdkjuhfdkjs");
 		try {
 			for (mod in CoolUtil.coolTextFile('modsList.txt'))
 			{
