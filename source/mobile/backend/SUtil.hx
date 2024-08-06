@@ -182,8 +182,10 @@ class SUtil
 			if (!Permissions.getGrantedPermissions().contains('android.permission.READ_EXTERNAL_STORAGE')) Permissions.requestPermission('android.permission.READ_EXTERNAL_STORAGE');
 			if (!Permissions.getGrantedPermissions().contains('android.permission.WRITE_EXTERNAL_STORAGE')) Permissions.requestPermission('android.permission.WRITE_EXTERNAL_STORAGE');
 			showPopUp('Please make sure you accept the permissions to run the game.', 'Warning');
+			#if EXTERNAL
 			if (!Environment.isExternalStorageManager())
 				Settings.requestSetting('MANAGE_APP_ALL_FILES_ACCESS_PERMISSION');
+			#end
 		}
 
 		try {
