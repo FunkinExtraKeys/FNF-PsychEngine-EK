@@ -78,6 +78,35 @@ jobs:
         with:
           name: windowsBuild
           path: export/release/windows/bin
+  buildWindows32Bit:
+    runs-on: windows-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2.3.0
+
+      - uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: 4.3.4
+      # Runs a set of commands using the runners shell
+      - name: Install Haxelib
+        run: |
+          haxelib setup C:/haxelib
+          haxelib install hxcpp > /dev/null --quiet
+          haxe -cp ./setup -D analyzer-optimize -main Main --interp
+        shell: cmd
+      - name: Skip SScript setup mode
+        run: echo 'oy9:showMacroty8:loopCosti25y10:includeAllfg' >> %USERPROFILE%/settings.cocoa
+        shell: cmd
+      - name: Create Version Tag
+        run: echo "${{github.run_id}}" > VERSION
+      - name: Compile
+        run: haxelib run lime build windows -32bit --app-version="4.0.0-${{ github.run_id}}"
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: windowsBuild
+          path: export/release/windows/bin
   buildMac:
     runs-on: macos-latest
 
