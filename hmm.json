@@ -82,8 +82,8 @@
       "name": "linc_luajit",
       "type": "git",
       "dir": null,
-      "ref": "1906c4a96f6bb6df66562b3f24c62f4c5bba14a7",
-      "url": "https://github.com/FunkinExtraKeys/linc_luajit.git"
+      "ref": "main",
+      "url": "https://github.com/mcagabe19-stuff/linc_luajit-legacy"
     },
     {
       "name": "flxanimate",
